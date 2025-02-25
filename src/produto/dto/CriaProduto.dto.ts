@@ -78,4 +78,7 @@ export class CriaProdutoDTO {
   @IsString()
   @IsNotEmpty({ message: 'Categoria do produto não pode ser vazia' })
   categoria: string;
+
+  @IsUUID(undefined, { message: 'ID de fornecedor inválido' })
+  fornecedorId: string;
 }

@@ -54,4 +54,7 @@ export class AtualizaProdutoDTO {
   @IsNotEmpty({ message: 'Categoria do produto não pode ser vazia' })
   @IsOptional()
   categoria: string;
+
+  @IsUUID(undefined, { message: 'ID de fornecedor inválido' })
+  fornecedorId: string;
 }

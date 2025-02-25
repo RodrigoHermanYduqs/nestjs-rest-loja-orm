@@ -12,6 +12,8 @@ import {
 
 @Entity({name: 'fornecedores'})
 export class FornecedorEntity{
+    constructor(){}
+
     @PrimaryGeneratedColumn('uuid')
     id: string;
 

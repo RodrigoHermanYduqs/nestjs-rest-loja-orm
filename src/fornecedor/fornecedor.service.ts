@@ -32,4 +32,8 @@ export class FornecedorService{
     await this.fornecedorRepository.delete(id);
   }
 
+  async encontraPorID(id: string){
+    return await this.fornecedorRepository.findOneBy({id});
+  }
+
 }

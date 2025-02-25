@@ -13,6 +13,7 @@ import { AtualizaProdutoDTO } from './dto/atualizaProduto.dto';
 import { CriaProdutoDTO } from './dto/CriaProduto.dto';
 import { ProdutoEntity } from './produto.entity';
 import { ProdutoService } from './produto.service';
+import { FornecedorEntity } from 'src/fornecedor/fornecedor.entity';
 
 @Controller('produtos')
 export class ProdutoController {
@@ -31,6 +32,12 @@ export class ProdutoController {
     produto.categoria = dadosProduto.categoria;
     produto.caracteristicas = dadosProduto.caracteristicas;
     produto.imagens = dadosProduto.imagens;
+
+    const forn : FornecedorEntity = new FornecedorEntity();
+    forn.id=dadosProduto.fornecedorId;
+    produto.fornecedor = forn ;
+
+    //produto.fornecedor = await this.fornecedorService.encontraPorID(dadosProduto.fornecedorId);
 
     const produtoCadastrado = this.produtoService.criaProduto(produto);
     return produtoCadastrado;
