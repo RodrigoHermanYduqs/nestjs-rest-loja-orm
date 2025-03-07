@@ -45,12 +45,9 @@ export class ProdutoService {
     await this.produtoRepository.delete(id);
   }
 
-  async encontraPorCategoria(categoria: string){
-    await this.produtoRepository.find(
-      {
-        where: {categoria},
-      }
-    ) 
+  async encontraPorCategoria(categoria: string) {
+    await this.produtoRepository.find({
+      where: { categoria },
+    });
   }
-
 }

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { FornecedorEntity } from "./fornecedor.entity";
+import { FornecedorEntity } from './fornecedor.entity';
 import { FornecedorService } from './fornecedor.service';
 import { FornecedorController } from './fornecedor.controller';
 
@@ -9,4 +9,4 @@ import { FornecedorController } from './fornecedor.controller';
   controllers: [FornecedorController],
   providers: [FornecedorService],
 })
-export class FornecedorModule{}
+export class FornecedorModule {}

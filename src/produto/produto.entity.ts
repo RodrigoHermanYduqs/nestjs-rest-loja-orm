@@ -61,8 +61,7 @@ export class ProdutoEntity {
   @ManyToOne(
     () => FornecedorEntity,
     (fornecedorEntity) => fornecedorEntity.produtos,
-    { orphanedRowAction: 'delete',
-      onDelete: 'CASCADE' }
+    { orphanedRowAction: 'delete', onDelete: 'CASCADE' },
   )
   fornecedor: FornecedorEntity;
 }

@@ -20,25 +20,37 @@ export class UsuarioController {
 
   @Post()
   async criaUsuario(@Body() dadosDoUsuario: CriaUsuarioDTO) {
-    const usuarioEntity = new UsuarioEntity();
-    usuarioEntity.email = dadosDoUsuario.email;
-    usuarioEntity.senha = dadosDoUsuario.senha;
-    usuarioEntity.nome = dadosDoUsuario.nome;
-    usuarioEntity.id = uuid();
+    try{
+      const usuarioEntity = new UsuarioEntity();
+      usuarioEntity.email = dadosDoUsuario.email;
+      usuarioEntity.senha = dadosDoUsuario.senha;
+      usuarioEntity.nome = dadosDoUsuario.nome;
+      usuarioEntity.id = uuid();
 
-    this.usuarioService.criaUsuario(usuarioEntity);
+      this.usuarioService.criaUsuario(usuarioEntity);
 
-    return {
-      usuario: new ListaUsuarioDTO(usuarioEntity.id, usuarioEntity.nome),
-      messagem: 'usuário criado com sucesso',
-    };
+      return {
+        usuario: new ListaUsuarioDTO(usuarioEntity.id, usuarioEntity.nome),
+        messagem: 'usuário criado com sucesso',
+      };
+    }
+    catch(erro)
+    {
+      throw erro;
+    }
   }
 
   @Get()
   async listUsuarios() {
-    const usuariosSalvos = await this.usuarioService.listUsuarios();
+    try{
+      const usuariosSalvos = await this.usuarioService.listUsuarios();
 
-    return usuariosSalvos;
+      return usuariosSalvos;
+    }
+    catch(erro)
+    {
+      throw erro;
+    }
   }
 
   @Put('/:id')
@@ -46,24 +58,37 @@ export class UsuarioController {
     @Param('id') id: string,
     @Body() novosDados: AtualizaUsuarioDTO,
   ) {
-    const usuarioAtualizado = await this.usuarioService.atualizaUsuario(
-      id,
-      novosDados,
-    );
+    try{
+      const usuarioAtualizado = await this.usuarioService.atualizaUsuario(
+        id,
+        novosDados,
+      );
 
-    return {
-      usuario: usuarioAtualizado,
-      messagem: 'usuário atualizado com sucesso',
-    };
+      return {
+        usuario: usuarioAtualizado,
+        messagem: 'usuário atualizado com sucesso',
+      };
+    }
+    catch(erro)
+    {
+      throw erro;
+    }
   }
 
   @Delete('/:id')
   async removeUsuario(@Param('id') id: string) {
-    const usuarioRemovido = await this.usuarioService.deletaUsuario(id);
+    try
+    {
+      const usuarioRemovido = await this.usuarioService.deletaUsuario(id);
 
-    return {
-      usuario: usuarioRemovido,
-      messagem: 'usuário removido com suceso',
-    };
+      return {
+        usuario: usuarioRemovido,
+        messagem: 'usuário removido com suceso',
+      };
+    }
+    catch(erro)
+    {
+      throw erro;
+    }
   }
 }

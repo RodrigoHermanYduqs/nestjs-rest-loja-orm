@@ -33,9 +33,9 @@ export class ProdutoController {
     produto.caracteristicas = dadosProduto.caracteristicas;
     produto.imagens = dadosProduto.imagens;
 
-    const forn : FornecedorEntity = new FornecedorEntity();
-    forn.id=dadosProduto.fornecedorId;
-    produto.fornecedor = forn ;
+    const forn: FornecedorEntity = new FornecedorEntity();
+    forn.id = dadosProduto.fornecedorId;
+    produto.fornecedor = forn;
 
     //produto.fornecedor = await this.fornecedorService.encontraPorID(dadosProduto.fornecedorId);
 

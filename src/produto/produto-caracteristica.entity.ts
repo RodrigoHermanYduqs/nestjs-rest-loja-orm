@@ -13,7 +13,7 @@ export class ProdutoCaracteristicaEntity {
   descricao: string;
 
   //@ManyToOne(() => ProdutoEntity, (produto) => produto.imagens, {
-    @ManyToOne(() => ProdutoEntity, (produto) => produto.caracteristicas, {
+  @ManyToOne(() => ProdutoEntity, (produto) => produto.caracteristicas, {
     orphanedRowAction: 'delete',
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',

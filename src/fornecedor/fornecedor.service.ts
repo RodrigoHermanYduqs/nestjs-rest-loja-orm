@@ -6,7 +6,7 @@ import { AtualizaFornecedorDTO } from './dto/AtualizaFornecedor.dto';
 import { ListaFornecedorDTO } from './dto/ListaFornecedor.dto';
 
 @Injectable()
-export class FornecedorService{
+export class FornecedorService {
   constructor(
     @InjectRepository(FornecedorEntity)
     private readonly fornecedorRepository: Repository<FornecedorEntity>,
@@ -19,7 +19,8 @@ export class FornecedorService{
   async listFornecedores() {
     const fornecedoresSalvos = await this.fornecedorRepository.find();
     const fornecedorLista = fornecedoresSalvos.map(
-      (fornecedor) => new ListaFornecedorDTO(fornecedor.id, fornecedor.nome, fornecedor.cnpj),
+      (fornecedor) =>
+        new ListaFornecedorDTO(fornecedor.id, fornecedor.nome, fornecedor.cnpj),
     );
     return fornecedorLista;
   }
@@ -32,8 +33,7 @@ export class FornecedorService{
     await this.fornecedorRepository.delete(id);
   }
 
-  async encontraPorID(id: string){
-    return await this.fornecedorRepository.findOneBy({id});
+  async encontraPorID(id: string) {
+    return await this.fornecedorRepository.findOneBy({ id });
   }
-
 }

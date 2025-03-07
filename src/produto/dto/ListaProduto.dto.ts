@@ -13,6 +13,6 @@ export class ListaProdutoDTO {
     readonly id: string,
     readonly nome: string,
     readonly caracteristicas: ListaCaracteristicaProdutoDTO[],
-    readonly imagens: ListaImagemProdutoDTO[]
+    readonly imagens: ListaImagemProdutoDTO[],
   ) {}
 }
