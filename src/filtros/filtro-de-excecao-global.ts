@@ -1,7 +1,8 @@
-import { ArgumentsHost, BadRequestException, ConflictException, ExceptionFilter, HttpAdapterHost, HttpException, HttpStatus, InternalServerErrorException, NotFoundException } from "@nestjs/common";
+import { ArgumentsHost, BadRequestException, Catch, ConflictException, ExceptionFilter, HttpException, HttpStatus, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import { QueryFailedError } from "typeorm";
+import { HttpAdapterHost } from '@nestjs/core';
 
-
+@Catch()
 export class FiltroDeExcecaoGlobal implements ExceptionFilter{
     constructor(private adapterHost: HttpAdapterHost){}
 
